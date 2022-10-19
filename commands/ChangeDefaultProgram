@@ -1,0 +1,8 @@
+#find out what kind of filetype a file is:
+xdg-mime query filetype foo.pdf
+#find out default program of filetype:
+xdg-mime query default application/pdf
+#set default program:
+xdg-mime default org.pwmt.zathura-pdf-poppler.desktop application/pdf
+#where do you find these .desktop files?:
+/usr/share/applications
