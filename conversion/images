@@ -1,0 +1,4 @@
+#make transp
+convert -transparent black -fuzz 10% inputfile outputfile
+#trim to obj
+convert -trim inputfile outputfile
