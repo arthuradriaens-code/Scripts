@@ -1,0 +1,15 @@
+needed:
+bluez,bluez-utils,pulseaudio,pulseaudio-bluetooth and a restart
+start bluetooth:
+sudo systemctl start bluetooth
+add device:
+$bluetoothctl
+#power on
+#devices/scan on
+#pair Mac_adress
+#trust Mac_adress
+#connect Mac_adress
+Switch audio profile so you can use mic:
+pacmd list-cards
+pacmd set-card-profile <index> handsfree_head_unit
+
