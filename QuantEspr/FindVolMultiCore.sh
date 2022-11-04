@@ -19,10 +19,10 @@ Min20Value=$(echo "$BaseValue - 0.20 * $BaseValue" | bc)
 VolMin20=$(echo "$BaseVol - 0.20 * $BaseVol" | bc)
 sed "s/A =.*/A = $Min20Value/g" $1 > Min20File.in
 
-mpirun -np 2 pw.x -input Min5File.in > Min5File.out
-mpirun -np 2 pw.x -input Min10File.in > Min10File.out
-mpirun -np 2 pw.x -input Min15File.in > Min15File.out
-mpirun -np 2 pw.x -input Min20File.in > Min20File.out
+mpirun -np 6 pw.x -input Min5File.in > Min5File.out
+mpirun -np 6 pw.x -input Min10File.in > Min10File.out
+mpirun -np 6 pw.x -input Min15File.in > Min15File.out
+mpirun -np 6 pw.x -input Min20File.in > Min20File.out
 
 echo -n $VolMin5 > VolVsE.txt #1 to remove previous
 echo -n "	" >> VolVsE.txt
