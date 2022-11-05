@@ -1,4 +1,2 @@
-ssconvert Input.xlsx output.csv
-column -s, -t < output.csv | less -#2 -N -S
-
-
+ssconvert $1 $2
+column -s, -t < $2 | less -#2 -N -S
