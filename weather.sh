@@ -1,3 +1,2 @@
 #!/bin/sh
-curl wttr.in
-
+xfce4-terminal --fullscreen --command 'sh -c "curl wttr.in ; sleep 1000"'
