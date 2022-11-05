@@ -5,7 +5,7 @@ BaseValue=$(grep "A = " "$1" | sed 's/.[^=]*=\(.[^ \t]*\)[ \t]*\(.[^ \t]*\)\(.*\
 x_length="$2"
 y_length="$3"
 z_length="$4"
-BaseVol=$(echo "$BaseValue * $BaseValue * $BaseValue * $x_length * $y_length * $z_length" | bc)
+BaseVol=$(echo "$BaseValue * $BaseValue * $BaseValue * $x_length * $y_length * $z_length /( 0.529177 * 0.529177 * 0.529177)" | bc)
 Min5Value=$(echo "$BaseValue - 0.05 * $BaseValue" | bc)
 VolMin5=$(echo "$BaseVol - 0.05 * $BaseVol" | bc)
 sed "s/A =.*/A = $Min5Value/g" $1 > Min5File.in

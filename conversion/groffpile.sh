@@ -1,3 +1,3 @@
 #!/bin/sh
 
-groff -e -ms $1 -T pdf > $2
+groff -e -t -ms $1 -T pdf > $2
