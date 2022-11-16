@@ -1,2 +1,2 @@
 #!/bin/sh
-xfce4-terminal  --command 'neomutt'
+xfce4-terminal  --command 'sh -c "mw -Y && neomutt"'
