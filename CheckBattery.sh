@@ -5,5 +5,5 @@ PLUGGEDSTATE=$(cat /sys/class/power_supply/AC/online)
 ISPLUGGED=1
 
 if [ "$LOWLIM" -ge "$PERCENTAGE" ] && [ "$PLUGGEDSTATE" -ne "$ISPLUGGED" ] ; then
-	notify-send "🔋 Battery is at $PERCENTAGE %, consider charging"
+	notify-send "🪫 Battery is at $PERCENTAGE %, consider charging"
 fi
