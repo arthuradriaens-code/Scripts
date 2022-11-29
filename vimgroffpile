@@ -9,6 +9,6 @@ _ARGS="$(grep -oP -- "$_PRFX.*$" "$_FILE" |  sed -s "s|$_PRFX||")"
 cd "$_DIR" || return 
  
 case "$_FILE" in 
-*\.ms) groff -e -t -ms -U "$_FILE" -T pdf > "$_BASE.pdf"
+*\.ms) refer -PS -e -p ~/Scripts/data/bibrefer "$_FILE" | groff -e -t -ms -U -T pdf > "$_BASE.pdf"
     ;; 
 esac 
