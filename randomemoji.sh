@@ -1,9 +1,8 @@
 
 #!/bin/sh
 
-# The famous "get a menu of emojis to copy" script.
+# Get a random emoji xdxp
 
-# Get user selection via dmenu from emoji file.
 chosen=$(cut -d ';' -f1 /home/arthur/Scripts/emojis/* | shuf -n 1 | sed "s/ .*//" )
 
 # Exit if none chosen.
