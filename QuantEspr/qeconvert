@@ -1,4 +1,14 @@
 #/bin/sh
+if [ $# -eq 1 ] && [ "$1" = "-h" ]
+  then
+    echo "\n" #White space
+    echo "This program can be used in two ways,"
+    echo "either you just convert to a .in file:\n"
+    echo "qeconvert input.cif output.in\n"
+    echo "Or you make a supercell:\n"
+    echo "qeconvert input.cif output.in scalex scaley scalez\n"
+    exit 0
+fi
 # test if no supercell:
 if [ $# -eq 2 ]
   then
