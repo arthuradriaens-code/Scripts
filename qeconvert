@@ -9,6 +9,12 @@ if [ $# -eq 1 ] && [ "$1" = "-h" ]
     echo "qeconvert input.cif output.in scalex scaley scalez\n"
     echo "Or you make a supercell, with a vacuum:\n"
     echo "qeconvert input.cif output.in scalex scaley scalez vacuumx vacuumy vacuumz\n"
+    echo "Or you make a supercell, with a vacuum,"
+    echo "with a special surface:\n"
+    echo "qeconvert input.cif output.in scalex1 scaley1 scalez1 scalex2 scaley2 scalez2 scalex3 scaley3 scalez3 vacuumx vacuumy vacuumz\n"
+    echo "e.g if you want a (110) surface with vacuum it would"
+    echo "look like:"
+    echo "qeconvert input.cif output.in 3 3 0 -3 3 0 0 0 3 0 1 0\n"
     exit 0
 fi
 # test if no supercell:
@@ -31,9 +37,20 @@ cif2cell "$1" -p quantum-espresso --no-reduce --supercell=[$3,$4,$5] -o .input &
 	&& rm .input
 	exit 0
 fi
+# test if supercell and vacuum
 if [ $# -eq 8 ]
   then
 cif2cell "$1" -p quantum-espresso --no-reduce --supercell=[$3,$4,$5] --supercell-vacuum=[$6,$7,$8] -o .input && cat .input | sed '7a\&CONTROL\n  calculation="'"scf"'",\n  outdir="'"."'",\n  prefix="'"file"'",\n  pseudo_dir="'"."'"\n  verbosity="'"low"'",\n  tprnfor=.true.,\n  tstress=.true.,\n/' \
+	| sed '22a\  ecutwfc=50,\n  ecutrho=200,\n  input_dft="'"pbe"'",\n  occupations="'"smearing"'",\n  smearing="'"mv"'",\n  degauss=0.005d0,' \
+	| sed '29a\&ELECTRONS\n  conv_thr=1d-08,\n  mixing_beta=0.7d0,\n/' > "$2" \
+	&& echo "K_POINTS {automatic}\n  7 7 7 0 0 0" >> "$2" \
+	&& rm .input
+	exit 0
+fi
+# test if sloped supercell and vacuum, damn lot's of args.
+if [ $# -eq 14 ]
+  then
+cif2cell "$1" -p quantum-espresso --no-reduce --supercell=[["$3","$4","$5"],["$6","$7","$8"],["$9","${10}","${11}"]] --supercell-vacuum=["${12}","${13}","${14}"] -o .input && cat .input | sed '7a\&CONTROL\n  calculation="'"scf"'",\n  outdir="'"."'",\n  prefix="'"file"'",\n  pseudo_dir="'"."'"\n  verbosity="'"low"'",\n  tprnfor=.true.,\n  tstress=.true.,\n/' \
 	| sed '22a\  ecutwfc=50,\n  ecutrho=200,\n  input_dft="'"pbe"'",\n  occupations="'"smearing"'",\n  smearing="'"mv"'",\n  degauss=0.005d0,' \
 	| sed '29a\&ELECTRONS\n  conv_thr=1d-08,\n  mixing_beta=0.7d0,\n/' > "$2" \
 	&& echo "K_POINTS {automatic}\n  7 7 7 0 0 0" >> "$2" \
