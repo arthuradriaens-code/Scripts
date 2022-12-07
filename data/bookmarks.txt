@@ -5,3 +5,4 @@ http://www.cryst.ehu.es #Bilbao server
 http://www.crystallography.net #Crystallography Open Database (COD)
 https://oqmd.org/ # Phase Diagrams
 https://unixsheikh.com/index.html  # REALLY fun blog
+https://news.ycombinator.com/news  # Hacker news
