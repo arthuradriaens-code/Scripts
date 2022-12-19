@@ -1,5 +1,5 @@
 #!/bin/sh
 
 cd /media/movies
-movie=$(ls | dmenu)
+movie=$(ls | dmenu -l 10)
 mpv "$movie"
