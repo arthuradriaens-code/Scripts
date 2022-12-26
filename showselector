@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cd /media/shows
+show="$(ls | dmenu -l 10)"
+cd /media/shows/"$show"
+episode=$(ls | dmenu -l 10)
+mpv "$episode"
