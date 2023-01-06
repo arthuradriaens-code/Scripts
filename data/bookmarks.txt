@@ -6,3 +6,6 @@ http://www.crystallography.net #Crystallography Open Database (COD)
 https://oqmd.org/ # Phase Diagrams
 https://unixsheikh.com/index.html  # REALLY fun blog
 https://news.ycombinator.com/news  # Hacker news
+https://teachyourselfcs.com/ #Teach yourself computer science
+https://craftinginterpreters.com/ #Teach interpreters
+https://pages.cs.wisc.edu/~remzi/OSTEP/#book-chapters #Teach operating systems, opm:'~' before remzi
