@@ -1,3 +1,3 @@
-#!/bin/sh
+#/bin/sh
 
-groff -e -t -ms -U $1 -T pdf > $2
+groff -e -t -ms -U -Kutf8 $1 -T pdf > $2
