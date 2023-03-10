@@ -1,0 +1,4 @@
+First during install always add USE_LIST_SO=0
+eval $(oidc-agent)
+oidc-gen -m radio --client-id=local --redirect-uri="http://localhost:4242" --scope="openid email profile" --client-secret="30009932-898b-4c38-a487-e8a2e2cf971f" --issuer="https://keycloak.desy.de/auth/realms/Radio/"
+curl https://rnog-data-protected.zeuthen.desy.de/inbox/station**/run***/combined.root -H "Authorization: Bearer `oidc-token radio`" --output station**_run***.root
