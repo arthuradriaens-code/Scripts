@@ -2,8 +2,9 @@
 
 STATION="$1"
 RUN="$2"
+PREFIX=~/Documents/thesis/data/interesting
 
-cd ~/Documents/thesis/data/interesting
+cd $PREFIX
 mkdir station$STATION
 cd station$STATION
 mkdir run$RUN
