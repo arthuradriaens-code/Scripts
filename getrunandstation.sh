@@ -2,7 +2,7 @@
 
 STATION="$1"
 RUN="$2"
-PREFIX=~/Documents/thesis/data/interesting
+PREFIX=~/mnt/usb/RNO-G-DATA
 
 cd $PREFIX
 mkdir station$STATION
