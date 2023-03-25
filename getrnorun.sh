@@ -1,9 +1,8 @@
 #!/bin/sh
 if [ $# -eq 1 ] && [ "$1" = "-h" ]
   then
-    echo "\n" #White space
-    echo "first argument should be the station number, the
-    second one the run number"
+    echo "first argument should be the station number,"
+    echo "the second one the run number"
     exit 0
 fi
 if [ $# -eq 2 ]
