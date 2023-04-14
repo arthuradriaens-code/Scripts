@@ -1,0 +1,15 @@
+#!/bin/sh
+if [ $# -eq 1 ] && [ "$1" = "-h" ]
+  then
+    echo "first argument should be the ris file,"
+    echo "the second one the bibtex file"
+    exit 0
+fi
+if [ $# -eq 2 ]
+	then
+		ris2xml $1 | xml2bib -b > $2
+	exit 0
+fi
+
+echo "incorrect use"
+exit 1
