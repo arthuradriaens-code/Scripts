@@ -10,7 +10,7 @@ if [ $# -eq 2 ]
 STATION="$1"
 RUN="$2"
 
-cd RNO_DATA_DIR
+cd $RNO_DATA_DIR
 mkdir station$STATION
 cd station$STATION
 mkdir run$RUN
