@@ -9,9 +9,8 @@ if [ $# -eq 2 ]
 	then
 STATION="$1"
 RUN="$2"
-PREFIX=/mnt/usb/RNO-G-DATA
 
-cd $PREFIX
+cd RNO_DATA_DIR
 mkdir station$STATION
 cd station$STATION
 mkdir run$RUN
