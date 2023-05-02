@@ -1,0 +1,16 @@
+#!/bin/sh
+if [ $# -eq 1 ] && [ "$1" = "-h" ]
+  then
+    echo "first argument should be the device location, e.g /dev/sdc"
+    exit 0
+fi
+if [ $# -eq 1 ] && [ "$1" != "-h" ]
+then
+	DEVICE="$1"
+	sudo cryptsetup open $DEVICE decrypted
+	sudo mount /dev/mapper/decrypted /mnt/usb
+	exit 0
+fi
+
+echo "incorrect use"
+exit 1

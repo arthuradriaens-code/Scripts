@@ -1,0 +1,15 @@
+#!/bin/sh
+if [ $# -eq 1 ] && [ "$1" = "-h" ]
+  then
+    echo "unmounts and encrypts decrypted device mounted at /mnt/usb"
+    exit 0
+fi
+if [ $# -eq 0 ]
+then
+	sudo umount /mnt/usb
+	sudo cryptsetup close /dev/mapper/decrypted
+	echo "unmounted and encrypted"
+	exit 0
+fi
+echo "incorrect use"
+exit 1
