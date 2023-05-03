@@ -10,23 +10,27 @@ if [ $# -eq 1 ] && [ "$1" = "-h" ]
 fi
 if [ $# -eq 1 ]
 then
-	FILE="$(basename "$1")"
+	BASEFILE=$(basename "$1")
+	FILE=$(echo $BASEFILE | sed 's/ //g')
+
+	if [ "$BASEFILE" != "$FILE" ]
+	then
+		mv "$BASEFILE" "$FILE"
+	fi
+
 	if [ "$FILE" = *".zip" ]
 	then
 		unzip $FILE
-		rm $FILE
 		exit 0
 	fi
 	if [ "$FILE" = *".tar.gz" ]
 	then
 		tar -xvzf $FILE
-		rm $FILE
 		exit 0
 	fi
 	if [ "$FILE" = *".gz" ]
 	then
 		gunzip $FILE
-		rm $FILE
 		exit 0
 	fi
 fi
