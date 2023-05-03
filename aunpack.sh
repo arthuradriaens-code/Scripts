@@ -4,7 +4,8 @@
 #
 if [ $# -eq 1 ] && [ "$1" = "-h" ]
   then
-    echo ""
+    echo "give as a first argument the file you want to unpack"
+    echo "unpacks .zip, .tar.gz and .gz files"
     exit 0
 fi
 if [ $# -eq 1 ]
