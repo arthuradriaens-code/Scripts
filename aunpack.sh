@@ -33,6 +33,12 @@ then
 		gunzip $FILE
 		exit 0
 	fi
+	if [ "$FILE" = *".7z" ]
+	then
+		7z e $FILE
+		exit 0
+	fi
+
 fi
 echo "incorrect use"
 exit 1
