@@ -9,6 +9,7 @@ then
 	DEVICE="$1"
 	sudo cryptsetup open $DEVICE decrypted
 	sudo mount /dev/mapper/decrypted /mnt/usb
+  echo "decrypted and mounted to /mnt/usb"
 	exit 0
 fi
 
