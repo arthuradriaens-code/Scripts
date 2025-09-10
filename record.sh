@@ -10,4 +10,4 @@ if [ $# -eq 1 ] && [ "$1" = "-h" ]
     exit 0
 fi
 
-ffmpeg -video_size $1 -framerate $2 -f x11grab -i :0.0 -f pulse -ac 2 -i default output.mp4
+ffmpeg -video_size $1 -framerate $2 -f x11grab -i :0.0 -f pulse -ac 2 -an -i default output.mp4

@@ -11,9 +11,9 @@ if [ "$ALARMLIM" -ge "$PERCENTAGE" ] && [ "$PLUGGEDSTATE" -ne "$ISPLUGGED" ] ; t
 fi
 
 if [ "$LOWLIM" -ge "$PERCENTAGE" ] && [ "$PLUGGEDSTATE" -ne "$ISPLUGGED" ] ; then
-	notify-send "🪫 Battery is at $PERCENTAGE %, consider charging"
+    hyprctl notify -2 10000 "rgb(ff0000)" "🪫 Battery is at $PERCENTAGE %, consider charging"
 fi
 
-if [ "$HIGHLIM" -le "$PERCENTAGE" ] && [ "$PLUGGEDSTATE" -eq "$ISPLUGGED" ] ; then
-	notify-send "🔋 Battery is fully charged"
+if [ "$PERCENTAGE" -ge "$HIGHLIM" ] && [ "$PLUGGEDSTATE" == "$ISPLUGGED" ] ; then
+    hyprctl notify -2 10000 "rgb(ff0000)" "🔋 Battery is fully charged" 
 fi
